@@ -1,1 +1,24 @@
+Day 1
+The CS50 Foundation (The "Why")
+In languages like C or Java, a variable is a box. If you declare int x = 5;, a specific chunk of memory is carved out, and the value 5 is dropped inside it.
+
+Python does not work this way. In Python, everything is an object, and a variable is merely a nametag (a pointer/reference) bound to that object in heap memory.
+
+When you execute:
+x = 5
+y = x
+
+Python creates an integer object 5 somewhere in memory. x points to it. When you say y = x, 
+Python does not copy the value; it simply points y to the exact same memory location.
+
+Mutability vs. Immutability
+This pointer architecture introduces the most critical concept in Python memory management:
+
+Immutable Types (int, float, str, tuple, bool): Once created in memory, their value cannot change. If you modify x = x + 1, 
+Python doesn't change the object 5. It creates a new integer object 6 and moves the x nametag to it.
+
+Mutable Types (list, dict, set): The object can be modified in-place without altering its memory address.
+
+Computational ComplexityVariable assignment/lookup: $O(1)$ constant time. Python uses an internal hash table for variable scope lookups.
+Type checking: $O(1)$ at runtime (Dynamic Typing), which introduces a slight performance overhead compared to statically compiled languages because Python must inspect the object's header every time it reads a variable
 
