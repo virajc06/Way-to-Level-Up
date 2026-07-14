@@ -1,1 +1,38 @@
+Day 2 
+The CS50 Foundation (The "Why")
+
+At the hardware level, a CPU executes instructions sequentially. Control flow forces the CPU to "jump" to different memory addresses based on conditions.
+
+1. Conditional Branching at the Bytecode Level
+When Python compiles your code into bytecode (before running it in the CPython virtual machine),
+an if statement translates to conditional jump instructions like POP_JUMP_IF_FALSE.
+
+if user.is_authenticated:
+    show_dashboard()
+
+Under the hood, Python evaluates the truthiness of the condition.
+If it is false, the interpreter immediately changes its instruction pointer to skip the block. 
+This evaluation is highly optimized and executes in constant time, $O(1)$.2. 
+The Iterator Protocol (How Loops Actually Work)In languages like C or Java, a for loop traditionally increments an index counter (i++) to access an array layout in memory.
+Python does not do this.In Python, a for loop is syntactic sugar for an architectural mechanism called the Iterator Protocol.
+When you write for item in modern_list:, 
+Python secretly does the following behind the scenes:It calls iter(modern_list), which returns an iterator object containing a __next__() method.
+It repeatedly calls __next__() on that iterator to pull the next element.When there are no elements left, the iterator raises a StopIteration exception. 
+Python catches this exception silently and exits the loop.
+This architecture means Python loops can iterate over anything that implements the iterator protocol (files, database streams, network sockets), not just arrays.
+
+Example :
+1. If Else Statement
+age=int(input("Enter the Age : "))
+if age>18:
+    print("Eligible for Driving Bike")
+else:
+    print("Not Eligible for Driving")
+
+2. For loop
+n=int(input("Enter the Number : "))
+
+for i in range(n):
+    i=i*n
+    print(i)
 
