@@ -1,1 +1,30 @@
+Day 3
+
+The CS50 Foundation (The "Why")
+1. The Call Stack and Execution Frames
+When you run a Python script, the interpreter manages function execution using a Call Stack.
+
+When you call a function, a new Stack Frame is created and pushed onto the call stack.
+
+This frame contains the function's local variables, arguments, and the return address (where the CPU should jump back to once the function finishes).
+
+When the function returns, its frame is popped off the stack, and all its strictly local variables are garbage collected.
+
+2. The LEGB Scope Resolution RuleHow does Python know what variable name points to what object?
+It searches through four nested scopes in a strict, sequential order: Local, Enclosing, Global, and Built-in (LEGB).
+Local (L): Names assigned inside a function (def or lambda) and not declared global.
+Enclosing (E): Names in the local scope of any enclosing/outer functions (relevant in nested functions/closures).
+Global (G): Names assigned at the top-level of a module file, or declared global within a function.
+Built-in (B): Names pre-loaded into Python’s built-in namespace (like print, len, range).
+If Python searches all four scopes and finds nothing, it throws a NameError. 
+This lookup process happens in $O(1)$ time per scope check using internal namespace dictionaries.3.
+The Truth About "Passing Arguments"Python does not use "Pass-by-value" or "Pass-by-reference".
+It uses Pass-by-object-reference (sometimes called pass-by-assignment).
+If you pass an immutable object (like an int or str), the function receives a copy of the reference. 
+If you modify it inside, Python creates a new object locally, leaving the external object unchanged.
+If you pass a mutable object (like a list or dict), the function receives the actual reference. 
+Modifying it inside modifies the external object permanently.
+
+
+
 
